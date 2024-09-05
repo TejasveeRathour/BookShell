@@ -6,7 +6,7 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-
+const User = require("./routes/user");
 
 
 
@@ -27,3 +27,6 @@ connectDB().then(() => {
 }).catch((error) => {
     console.error("Failed to connect to the database", error);
 });
+
+//routes
+app.use("/api/v1", User);
