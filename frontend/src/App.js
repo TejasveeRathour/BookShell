@@ -17,6 +17,7 @@ import Settings from "./components/Profile/Settings";
 import AllOrders from "./pages/AllOrders";
 import AddBook from "./pages/AddBook";
 import UpdateBook from "./pages/UpdateBook";
+import UnavailableBook from "./pages/UnavailableBook";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,14 +32,16 @@ const App = () => {
       dispatch(authActions.changeRole(localStorage.getItem("role")));
     }
   }, []);
+
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/all-books" element={<AllBooks />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/all-books" element={<AllBooks />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/updateBook/:id" element={<UpdateBook />} />
         <Route path="/profile" element={<Profile />}>
           {role === "user" ? (
@@ -53,9 +56,9 @@ const App = () => {
           )}
           <Route path="/profile/orderHistory" element={<UserOrderHistory />} />
           <Route path="/profile/settings" element={<Settings />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="view-book-details/:id" element={<ViewBookDetails />} />
         </Route>
+        <Route path="view-book-details/:id" element={<ViewBookDetails />} />
+        <Route path="/unavailable" element={<UnavailableBook />} />
       </Routes>
       <Footer />
     </div>
