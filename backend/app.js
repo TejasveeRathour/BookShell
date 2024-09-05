@@ -9,6 +9,7 @@ app.use(express.json());
 const User = require("./routes/user");
 const Books = require("./routes/book");
 const Order = require("./routes/order");
+const Cart = require("./routes/cart");
 
 const connectDB = require("./connection/connection");
 
@@ -28,3 +29,4 @@ connectDB().then(() => {
 app.use("/api/v1", User);
 app.use("/api/v1", Books);
 app.use("/api/v1", Order);
+app.use("/api/v1", Cart);
