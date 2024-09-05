@@ -7,11 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 const User = require("./routes/user");
-
-
-
-
-
+const Books = require("./routes/book");
 
 
 const connectDB = require("./connection/connection");
@@ -30,3 +26,4 @@ connectDB().then(() => {
 
 //routes
 app.use("/api/v1", User);
+app.use("/api/v1", Books);
