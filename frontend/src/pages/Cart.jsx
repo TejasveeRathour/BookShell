@@ -211,7 +211,7 @@ const Cart = () => {
                   checked={paymentMethod === "razorpay"}
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 />{" "}
-                Razorpay
+                Online Payment
               </label>
               <label className="block text-zinc-300">
                 <input
